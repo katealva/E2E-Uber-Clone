@@ -47,6 +47,20 @@ export interface RegisterRequest {
   role: Role
 }
 
+// ---- Trips (pasajero) ----
+
+// Body de POST /trips
+export interface CreateTripRequest {
+  pickupAddress: string
+  dropoffAddress: string
+}
+
+// Body de POST /trips/{id}/rate (comment es opcional)
+export interface RateTripRequest {
+  rating: number
+  comment?: string
+}
+
 // Forma de error de la API: { "error": "mensaje" }
 // (los errores de validación usan el nombre del campo como clave)
 export interface ApiError {

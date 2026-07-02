@@ -4,6 +4,8 @@ import { HOME_BY_ROLE } from './lib/routes'
 import { useAuth } from './context/AuthContext'
 import LoginPage from './pages/LoginPage'
 import PassengerDashboard from './pages/PassengerDashboard'
+import RequestTripPage from './pages/RequestTripPage'
+import TripDetailPage from './pages/TripDetailPage'
 import DriverDashboard from './pages/DriverDashboard'
 
 // Raíz protegida: envía a cada usuario al dashboard de su rol.
@@ -25,6 +27,8 @@ export default function App() {
 
       <Route element={<ProtectedRoute role="PASSENGER" />}>
         <Route path="/passenger" element={<PassengerDashboard />} />
+        <Route path="/passenger/request" element={<RequestTripPage />} />
+        <Route path="/passenger/trips/:id" element={<TripDetailPage />} />
       </Route>
 
       <Route element={<ProtectedRoute role="DRIVER" />}>
