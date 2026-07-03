@@ -7,6 +7,8 @@ import PassengerDashboard from './pages/PassengerDashboard'
 import RequestTripPage from './pages/RequestTripPage'
 import TripDetailPage from './pages/TripDetailPage'
 import DriverDashboard from './pages/DriverDashboard'
+import DriverTripDetailPage from './pages/DriverTripDetailPage'
+import HistoryPage from './pages/HistoryPage'
 
 // Raíz protegida: envía a cada usuario al dashboard de su rol.
 function RoleHome() {
@@ -23,6 +25,8 @@ export default function App() {
       {/* Protegidas */}
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<RoleHome />} />
+        {/* Historial compartido: accesible por ambos roles. */}
+        <Route path="/historial" element={<HistoryPage />} />
       </Route>
 
       <Route element={<ProtectedRoute role="PASSENGER" />}>
@@ -33,6 +37,7 @@ export default function App() {
 
       <Route element={<ProtectedRoute role="DRIVER" />}>
         <Route path="/driver" element={<DriverDashboard />} />
+        <Route path="/driver/trips/:id" element={<DriverTripDetailPage />} />
       </Route>
 
       {/* Cualquier otra ruta → raíz */}
