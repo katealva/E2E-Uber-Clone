@@ -67,7 +67,15 @@ export default function PassengerDashboard() {
         Pedir viaje
       </button>
 
-      <h2 className="mt-10 mb-3 text-lg font-semibold text-gray-900">Mis viajes</h2>
+      <div className="mt-10 mb-3 flex items-center justify-between">
+        <h2 className="text-lg font-semibold text-gray-900">Mis viajes</h2>
+        <button
+          onClick={() => navigate('/historial')}
+          className="text-sm font-medium text-brand-accent hover:underline"
+        >
+          Ver historial →
+        </button>
+      </div>
 
       {loading && <p className="py-6 text-center text-sm text-gray-400">Cargando viajes…</p>}
 
